@@ -68,9 +68,9 @@ class KoinexpriceCommand extends UserCommand
   // Step 5
   //$result = exec("curl https://koinex.in/api/ticker");
   //if(!isset($result)) {
-    $reply_message = "Please use /indianprice for the Indian crypto market price.";
+  $reply_message = "Please use /indianprice for the Indian crypto market price.";
   //} 
-  }
+  //}
   
   $data = [
     'chat_id' => $chat_id,
