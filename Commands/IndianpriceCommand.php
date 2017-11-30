@@ -18,12 +18,12 @@ use Longman\TelegramBot\Request;
 *
 * Simply echo the input back to the user.
 */
-class KoinexpriceCommand extends UserCommand
+class IndianpriceCommand extends UserCommand
 {
   /**
   * @var string
   */
-  protected $name = 'koinexprice';
+  protected $name = 'indianprice';
   
   /**
   * @var string
@@ -33,7 +33,7 @@ class KoinexpriceCommand extends UserCommand
   /**
   * @var string
   */
-  protected $usage = '/koinexprice';
+  protected $usage = '/indianprice';
   
   /**
   * @var string
@@ -66,10 +66,22 @@ class KoinexpriceCommand extends UserCommand
   // Step 4
   curl_close($cSession);*/
   // Step 5
-  //$result = exec("curl https://koinex.in/api/ticker");
-  //if(!isset($result)) {
-    $reply_message = "Please use /indianprice for the Indian crypto market price.";
-  //} 
+  $result = exec("curl https://koinex.in/api/ticker");
+  if(!isset($result)) {
+    $reply_message = "We are unable to fetch the data right now.";
+  } else {
+    $bond_data = $result;
+    $bond_data = json_decode($bond_data,true);
+    if($bond_data['prices'] == "na") {
+      $reply_message = "We are unable to fetch the data right now.";
+    } else {
+      //$reply_message = $result;
+      $reply_message = "Current BTC price is ₹".$bond_data['prices']['BTC']."\n";
+      $reply_message .= "Current ETH price is ₹".$bond_data['prices']['ETH']."\n";
+      $reply_message .= "Current BCH price is ₹".$bond_data['prices']['BCH']."\n";
+      $reply_message .= "Current LTC price is ₹".$bond_data['prices']['LTC']."\n";
+      $reply_message .= "Current XRP price is ₹".$bond_data['prices']['XRP']."\n";
+    }
   }
   
   $data = [
