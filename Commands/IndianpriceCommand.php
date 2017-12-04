@@ -76,11 +76,11 @@ class IndianpriceCommand extends UserCommand
       $reply_message = "We are unable to fetch the data right now.";
     } else {
       //$reply_message = $result;
-      $reply_message = "Current BTC price is ₹".$bond_data['prices']['BTC']."\n";
-      $reply_message .= "Current ETH price is ₹".$bond_data['prices']['ETH']."\n";
-      $reply_message .= "Current BCH price is ₹".$bond_data['prices']['BCH']."\n";
-      $reply_message .= "Current LTC price is ₹".$bond_data['prices']['LTC']."\n";
-      $reply_message .= "Current XRP price is ₹".$bond_data['prices']['XRP']."\n";
+      $reply_message = "BTC price is ₹".$bond_data['prices']['BTC']."\n";
+      $reply_message .= "ETH price is ₹".$bond_data['prices']['ETH']."\n";
+      $reply_message .= "BCH price is ₹".$bond_data['prices']['BCH']."\n";
+      $reply_message .= "LTC price is ₹".$bond_data['prices']['LTC']."\n";
+      $reply_message .= "XRP price is ₹".$bond_data['prices']['XRP']."\n";
     }
   }
   
